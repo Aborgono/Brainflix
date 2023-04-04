@@ -16,8 +16,8 @@ function Header() {
                         <button className="nav_upload__button" type="submit">UPLOAD</button>
                     </div>
                 </form>
+                <div className="nav__pic"></div>
             </div>
-            <div className="nav__pic"></div>
         </nav>
     </>
     );
