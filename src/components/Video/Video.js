@@ -1,9 +1,11 @@
 import './Video.scss';
 
-function Video() {
+function Video(props) {
+    const video = props.video
     return (
-    <>
-    </>
+    <div>
+        <img src={video}/>
+    </div>
     );
 }
 

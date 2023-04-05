@@ -1,24 +1,26 @@
 import './VideoHighlights.scss';
 
-function VideoHighlights() {
+function VideoHighlights(props) {
+    const {title, channel, description, views, likes, timestamp } = props
+
     return (
     <>
-        <nav className="nav">
-            <div className="nav__box">
-                <a href="">
-                    <img className="nav__logo" src="./" alt="BrainFlix Logo"></img>
-                </a>
+        <section className="video__container">
+            <div className='video__box'>
+                <div className="video__header">
+                    <h1>{title}</h1>
+                </div>
+                <div className='video__details'>
+                    <h3>{channel}</h3>
+                    <p>{timestamp}</p>
+                    <p>{views}</p>
+                    <p>{likes}</p>
+                </div>
             </div>
-            <div className="nav__box">
-                <form novalidate>
-                    <div className="nav__upload">
-                        <input className="nav__upload__type" type="text" name="fullName" placeholder="Search" required/>
-                        <button className="nav_upload__button" type="submit">UPLOAD</button>
-                    </div>
-                </form>
-                <div className="nav__pic"></div>
+            <div className='video__box'>
+                <p className='video__description'>{description}</p>
             </div>
-        </nav>
+        </section>
     </>
     );
 }
