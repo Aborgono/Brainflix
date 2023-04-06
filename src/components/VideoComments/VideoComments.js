@@ -8,7 +8,7 @@ console.log(comments);
     <div>
         {comments.map((comment) => {
             return (
-                    <div className='comment__container'>
+                    <div className='comment__container' key={comment.id}>
                         <div className='comment__container__image'></div>
                         <div className='comment__container__details__container'>
                             <div className='comment__container__details__name'>{comment.name}</div>

@@ -1,19 +1,40 @@
 import './FooterVideos.scss';
+import videos from '../../Assets/Data/videos.json'
+import videoData from '../../Assets/Data/video-details.json';
+
+
+
 
 function FooterVideos(props) {
-    const videos = [{"id":"84e96018-4022-434e-80bf-000ce4cd12b8","title":"BMX Rampage: 2021 Highlights","channel":"Red Cow","image":"https://i.imgur.com/l2Xfgpl.jpg"},{"id":"c05b9a93-8682-4ab6-aff2-92ebb4bbfc14","title":"Become A Travel Pro In One Easy Lesson","channel":"Todd Welch","image":"https://i.imgur.com/5qyCZrD.jpg"},{"id":"25ce5d91-a262-4dcf-bb87-42b87546bcfa","title":"Les Houches The Hidden Gem Of The Chamonix","channel":"Cornelia Blair","image":"https://i.imgur.com/yFS8EBr.jpg"},{"id":"b6f35f03-7936-409b-bd2a-446bcc5f30e7","title":"Travel Health Useful Medical Information For","channel":"Glen Harper","image":"https://i.imgur.com/MMDMgD7.jpg"},{"id":"1b964601-a6dd-4fcc-b5f3-1000338c9557","title":"Cheap Airline Tickets Great Ways To Save","channel":"Emily Harper","image":"https://i.imgur.com/ibLw5q5.jpg"},{"id":"9c268c0a-83dc-4b96-856a-bb5ded2772b1","title":"Take A Romantic Break In A Boutique Hotel","channel":"Ethan Owen","image":"https://i.imgur.com/7rD6Mf6.jpg"},{"id":"fc5261d1-58a0-47e4-9c19-2b7a1715fa1b","title":"Choose the Perfect Accommodations","channel":"Lydia Perez","image":"https://i.imgur.com/0hi3N4B.jpg"},{"id":"99478bed-6428-49ed-8eaa-f245a5414336","title":"Cruising Destination Ideas","channel":"Timothy Austin","image":"https://i.imgur.com/DDJNZNw.jpg"},{"id":"76ca28c0-7dea-4553-887f-8e5129a80fc3","title":"Train Travel On Track For Safety","channel":"Scotty Cranmer","image":"https://i.imgur.com/i6S8m7I.jpg"}]
-
+    const setSelectedVideo = props.setSelectedVideo
+    const selectedVideo = props.selectedVideo
+    /* created a constant called filteredvideos which accesses the videoData array and filters each video. The filter is checking whether the
+    video id is not equal to the selected video id. if this IS the case, we return the vide0. if this is not the case return nothing */
+    const filteredVideos = videos.filter((video) => { 
+        return video.id !== selectedVideo.id
+    })
+    /* onClick runs the updated selected video function that takes in the video id of the video we clicked (as a parameter). the update selected
+    video function filters through the videoData array and looks to match the id of the video we clicked with any of the videos in that array.
+    when that id is found we run the set selected video and change it to our const newSelectedVideo that is the video we clicked. If
+    you go to the apps, the selected video changes */
+    function updateSelectedVideo (newID) {
+        const newlySelectedVideo = videoData.filter((video) => {
+            return video.id === newID
+        })
+        setSelectedVideo(newlySelectedVideo[0])
+    }
+    
     return (
     <div>
         <h3>NEXT VIDEOS</h3>
-        {videos.map((video) => {
+        {filteredVideos.map((video) => {
             return (
-                    <div className='comment__container'>
-                        <div className='comment__container__image'></div>
-                        <div className='comment__container__details__container'>
-                            <div className='comment__container__details__name'>{video.title}</div>
-                            <div className='comment__container__details__timestamp'>{video.channel} </div>
-                            <div className='comment__container__details__comment'>{video.image} </div>
+                    <div className='nextVideo__container' key={video.id} onClick={() => {updateSelectedVideo(video.id)} }>
+                        <div className='nextVideo__container__image'></div>
+                        <div className='nextVideo__container__details__container'>
+                            <div className='nextVideo__container__details__title'>{video.title}</div>
+                            <div className='nextVideo__container__details__channel'>{video.channel} </div>
+                            <div className='nextVideo__container__details__image'>{video.image} </div>
                             <br></br>
                         </div>
                     </div>

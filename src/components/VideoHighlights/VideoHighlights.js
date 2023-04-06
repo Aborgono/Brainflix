@@ -1,8 +1,7 @@
 import './VideoHighlights.scss';
 
 function VideoHighlights(props) {
-    const {title, channel, description, views, likes, timestamp } = props
-
+    const {title, channel, description, views, likes, timestamp} = props
     return (
     <>
         <section className="video__container">
@@ -11,7 +10,7 @@ function VideoHighlights(props) {
                     <h1>{title}</h1>
                 </div>
                 <div className='video__details'>
-                    <h3>{channel}</h3>
+                    <h3>By: {channel}</h3>
                     <p>{timestamp}</p>
                     <p>{views}</p>
                     <p>{likes}</p>
