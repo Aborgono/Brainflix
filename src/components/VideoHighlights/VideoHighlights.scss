@@ -1,0 +1,29 @@
+@use '../../styles/partials/variables' as *;
+
+.video {
+    &__container {
+        padding: 1rem;
+        font-size: 13px;
+    }
+    &__header {
+        border-bottom: 1px solid $Mercury;
+        font-size: 24px;
+    }
+    &__details {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid $Mercury;
+        &__item {
+            font-size: .8125rem;
+        }
+        &__box {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            justify-content: space-between;
+            font-size: 13px;
+            line-height: 1.125rem;
+        }
+    }
+    
+}

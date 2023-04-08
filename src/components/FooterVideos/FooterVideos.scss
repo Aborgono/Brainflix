@@ -1,0 +1,38 @@
+@use '../../styles/partials/variables' as *;
+
+.nextVideo {
+    &__container {
+        padding: 1rem;
+        font-size: 13px;
+    }
+    &__header {
+        color: $Silver;
+    }
+    &__box {
+        display: flex;
+        justify-content: flex-start;
+        gap: 1rem;
+        padding-bottom: 1rem;
+        height: 5rem;
+        &__image {
+            width: 33%;
+            overflow-wrap: anywhere;
+        }
+        &__details {
+            width: 75%;
+            &__title {
+                font-weight: 700;
+                padding-bottom: 1rem;
+            }
+            &__image {
+                width: 40%;
+                border-radius: .25rem;
+            }
+            &__box {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+        }
+    }
+}

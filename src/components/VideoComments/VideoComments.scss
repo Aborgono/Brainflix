@@ -1,0 +1,49 @@
+@use '../../styles/partials/variables' as *;
+
+.comment {
+    &__container {
+        padding: 1rem 1rem 0 1rem;
+        font-size: .8125rem;
+    }
+    &__box {
+        border-bottom: 1px solid $Mercury;
+        display: flex;
+        gap: 1rem;
+        padding-top: 1rem;
+        align-items: flex-start;
+        &__image {
+            padding:1.25rem;
+            border-radius: 100%;
+            background-color: gray;
+        }
+        &__details {
+            &__text {
+                display: flex;
+                justify-content: space-between;
+                width: auto;
+            }
+            &__comment {
+                padding-top: 1rem;
+            }
+            &__name {
+                font-weight: 700;
+            }
+            &__timestamp {
+                color: $Silver;
+            }
+        }
+    }
+    border-bottom: 1px solid $Mercury;
+    &__details {
+        display: flex;
+        flex-wrap: wrap;
+        &__text {
+            display: flex;
+            justify-content: space-between;
+        }
+        &__name {
+        }
+        &__timestamp {
+        }
+    }
+}

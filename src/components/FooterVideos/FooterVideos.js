@@ -25,17 +25,16 @@ function FooterVideos(props) {
     }
     
     return (
-    <div>
-        <h3>NEXT VIDEOS</h3>
+    <div className='nextVideo__container'>
+        <h3 className='nextVideo__header'>NEXT VIDEOS</h3>
         {filteredVideos.map((video) => {
             return (
-                    <div className='nextVideo__container' key={video.id} onClick={() => {updateSelectedVideo(video.id)} }>
-                        <div className='nextVideo__container__image'></div>
-                        <div className='nextVideo__container__details__container'>
-                            <div className='nextVideo__container__details__title'>{video.title}</div>
-                            <div className='nextVideo__container__details__channel'>{video.channel} </div>
-                            <div className='nextVideo__container__details__image'>{video.image} </div>
-                            <br></br>
+                    <div className='nextVideo__box' key={video.id} onClick={() => {updateSelectedVideo(video.id)} }>
+                        {/* <div className='nextVideo__box__image'> */}
+                        <video poster={video.image} className='nextVideo__box__details__image' alt={video.title}></video>
+                        <div className='nextVideo__box__details__box'>
+                            <div className='nextVideo__box__details__title'>{video.title}</div>
+                            <div className='nextVideo__box__details__channel'>{video.channel} </div>
                         </div>
                     </div>
                 )
