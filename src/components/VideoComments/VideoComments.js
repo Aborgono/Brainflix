@@ -5,6 +5,7 @@ const comments = props.comments
 console.log(comments);
 
     return (
+    
     <div className='comment__container'>
         {comments.map((comment) => {
 
