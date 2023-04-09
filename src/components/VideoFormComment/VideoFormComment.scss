@@ -2,16 +2,27 @@
 @use '../../styles/partials/mixin' as *;
 
 .comment__form {
+    &__section {
+        padding: 1rem 1rem 0 1rem;
+        @include desktop {
+            padding: 2.25rem 0rem 1rem 8rem;
+        }
+    }
     &__container {
         display: flex;
-        padding: 1rem;
+        padding-bottom: 1rem;
         font-size: .8125rem;
         justify-content: space-between;
         border-bottom: 1px solid $Mercury;
         @include tablet {
-            margin-left: 1.5rem;
-            margin-right: 1.5rem;
+            margin-left: 2.25rem;
+            margin-right: 2.25rem;
             padding: 0 0 1rem 0;
+            @include desktop {
+                margin: 0;
+                padding-right: 1rem;
+                border-bottom: 0px;
+            }
         }
     }
     &__header {
@@ -26,11 +37,14 @@
         @include tablet {
             display: flex;
             margin: 0;
-            padding-left: 5.2rem;
+            padding-left: 6rem;
             padding-bottom: .5rem;
             font-size: .875rem;
             font-weight: 700;
             color: $Silver;
+            @include desktop {
+                padding-left: 3.6rem;
+            }
         }
     }
     &__button {

@@ -2,7 +2,7 @@ import './VideoFormComment.scss';
 
 function VideoFormComment () {
     return (
-        <div>
+        <section className='comment__form__section'>
             <p className='comment__form__header2'>JOIN THE CONVERSATION</p>
             <div className='comment__form__container'>
                 <div className='comment__form__picture'></div>
@@ -14,7 +14,7 @@ function VideoFormComment () {
                         </div>
                 </form>
             </div>
-        </div>
+        </section>
     );
 }
 

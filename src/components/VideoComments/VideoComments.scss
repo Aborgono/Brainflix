@@ -3,12 +3,15 @@
 
 .comment {
     &__container {
-        padding: 1rem 1rem 0 1rem;
+        padding: 0 1rem 0 1rem;
         font-size: .8125rem;
         @include tablet {
-            padding: 1.5rem;
+            padding: 2.25rem;
             font-size: .875rem;
             padding-top: 0;
+            @include desktop {
+                padding: 0 0 2.25rem 8rem;
+            }
         }
     }
     &__box {
@@ -17,6 +20,15 @@
         gap: 1rem;
         padding-top: 1rem;
         align-items: flex-start;
+        @include tablet {
+            padding-top: 1.5rem;
+            @include desktop {
+                padding-right: 1rem;
+                padding-top: 2rem;
+                border-top: 1px solid $Mercury;
+                border-bottom: 0px;
+            }
+        }
         &__image {
             padding:1.25rem;
             border-radius: 100%;

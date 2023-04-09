@@ -1,0 +1,13 @@
+@use './styles/partials/mixin' as *;
+@use './styles/partials/variables' as *;
+
+.desktop {
+    @include desktop {
+        display: flex;
+    }
+    &__container {
+        @include desktop {
+            border-right: 1px solid $Mercury;
+        }
+    }
+}

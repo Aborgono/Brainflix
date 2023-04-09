@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import Header from './components/Header/Header';
 import Video from './components/Video/Video';
 import VideoHighlights from './components/VideoHighlights/VideoHighlights';
@@ -15,17 +15,21 @@ function App() {
     <div>
       <Header />
       <Video video={selectedVideo.image} />
-      <VideoHighlights
-        title={selectedVideo.title}
-        channel={selectedVideo.channel}
-        description={selectedVideo.description}
-        views={selectedVideo.views}
-        likes={selectedVideo.likes}
-        timestamp={selectedVideo.timestamp}
-      />
-      <VideoFormComment />
-      <VideoComments comments={selectedVideo.comments} />
-      <FooterVideos selectedVideo={selectedVideo} setSelectedVideo={setSelectedVideo}/>
+      <div className='desktop'>
+        <div className='desktop__container'>
+          <VideoHighlights
+            title={selectedVideo.title}
+            channel={selectedVideo.channel}
+            description={selectedVideo.description}
+            views={selectedVideo.views}
+            likes={selectedVideo.likes}
+            timestamp={selectedVideo.timestamp}
+          />
+          <VideoFormComment />
+          <VideoComments comments={selectedVideo.comments} />
+        </div>
+        <FooterVideos selectedVideo={selectedVideo} setSelectedVideo={setSelectedVideo}/>
+      </div>
     </div>
   );
 }

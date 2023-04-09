@@ -3,7 +3,13 @@
 
 .hero {
     &__container {
+        background-color: black;
+        padding: 0 1rem 0 1rem;
         @include tablet {
+            padding: 0 2.25rem 0 2.25rem;
+            @include desktop {
+                padding: 0 12rem 0 12rem;
+            }
         }
     }
     &__video {

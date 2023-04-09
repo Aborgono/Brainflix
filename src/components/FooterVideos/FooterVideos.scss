@@ -6,7 +6,10 @@
         padding: 1rem;
         font-size: 13px;
         @include tablet {
-            padding: 0 1.5rem 1.5rem 1.5rem;
+            padding: 0 2.25rem 2.25rem 2.25rem;
+            @include desktop {
+                padding: 0 8rem 2.25rem 1rem;
+            }
         }
     }
     &__header {
@@ -17,11 +20,6 @@
         justify-content: flex-start;
         gap: 1rem;
         padding-bottom: 1rem;
-        height: 5rem;
-        &__image {
-            width: 33%;
-            overflow-wrap: anywhere;
-        }
         &__details {
             width: 75%;
             &__title {
@@ -29,13 +27,27 @@
                 padding-bottom: 1rem;
             }
             &__image {
-                width: 40%;
+                width: 7.5rem;
+                height: 4rem;
                 border-radius: .25rem;
+                object-fit: cover;
+                object-position: center;
+                @include desktop {
+                    width: 11.5rem;
+                    height: 5rem;
+                }
             }
             &__box {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
+                width: 50%;
+                @include tablet {
+                    width: 25%;
+                    @include desktop {
+                        width: 60%;
+                    }
+                }
             }
         }
     }
