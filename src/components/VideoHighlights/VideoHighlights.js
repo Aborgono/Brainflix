@@ -25,13 +25,13 @@ function VideoHighlights(props) {
                     <h1>{title}</h1>
                 </div>
                 <div className='video__details'>
-                    <div className='video__details__box'>
-                        <h3 className='video__details__item'>By: {channel}</h3>
-                        <p className='video__details__item'>{newDate}</p>
+                    <div className='video__details__box1'>
+                        <h3 className='video__details__item1'>By: {channel}</h3>
+                        <p className='video__details__item2'>{newDate}</p>
                     </div>
-                    <div className='video__details__box'>
-                        <p className='video__details__item'>{views}</p>
-                        <p className='video__details__item'>{likes}</p>
+                    <div className='video__details__box2'>
+                        <p className='video__details__item2'>{views}</p>
+                        <p className='video__details__item2'>{likes}</p>
                     </div>
                 </div>
             </div>

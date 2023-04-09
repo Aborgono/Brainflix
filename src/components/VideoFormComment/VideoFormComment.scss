@@ -1,4 +1,5 @@
 @use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixin' as *;
 
 .comment__form {
     &__container {
@@ -7,10 +8,30 @@
         font-size: .8125rem;
         justify-content: space-between;
         border-bottom: 1px solid $Mercury;
-        margin: 1rem;
+        @include tablet {
+            margin-left: 1.5rem;
+            margin-right: 1.5rem;
+            padding: 0 0 1rem 0;
+        }
     }
     &__header {
         color: $Silver;
+        @include tablet {
+            display: none;
+        }
+    }
+    &__header2 {
+        display: none;
+        color: $Silver;
+        @include tablet {
+            display: flex;
+            margin: 0;
+            padding-left: 5.2rem;
+            padding-bottom: .5rem;
+            font-size: .875rem;
+            font-weight: 700;
+            color: $Silver;
+        }
     }
     &__button {
         width: 100%;
@@ -19,6 +40,9 @@
         color: white;
         border-radius: .25rem;
         border: transparent;
+        @include tablet {
+            width: 50%;
+        }
     }
     &__picture {
         background-image: url(../../Assets/Images/Mohan-muruge.jpg);
@@ -28,6 +52,9 @@
         width: 3rem;
         margin-right: 1rem;
         margin-top: 1rem;
+        @include tablet {
+            margin-top: 0;
+        }
     }
     &__comment__text {
         width: 98%;
@@ -35,8 +62,18 @@
         margin-bottom: 1rem;
         border: solid $Mercury;
         border-radius: .25rem;
+        @include tablet {
+            height: 2rem;
+            margin-bottom: 0;
+        }
     }
     &-input {
         width: 100%;
+    }
+    &__div {
+        @include tablet {
+            display: flex;
+            gap: 2rem;
+        }
     }
 }

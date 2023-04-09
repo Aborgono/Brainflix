@@ -1,9 +1,13 @@
 @use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixin' as *;
 
 .nextVideo {
     &__container {
         padding: 1rem;
         font-size: 13px;
+        @include tablet {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+        }
     }
     &__header {
         color: $Silver;
