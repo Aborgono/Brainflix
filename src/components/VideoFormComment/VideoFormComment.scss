@@ -15,8 +15,8 @@
         justify-content: space-between;
         border-bottom: 1px solid $Mercury;
         @include tablet {
-            margin-left: 2.25rem;
-            margin-right: 2.25rem;
+            margin-left: 1.25rem;
+            margin-right: 1.25rem;
             padding: 0 0 1rem 0;
             @include desktop {
                 margin: 0;
@@ -54,6 +54,9 @@
         color: white;
         border-radius: .25rem;
         border: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         @include tablet {
             width: 50%;
         }

@@ -65,14 +65,26 @@
                 justify-content: flex-end;
                 gap: 3rem;
             }
+            &--view {
+                display: flex;
+                gap: .25rem;
+            }
+            &--like {
+                display: flex;
+                gap: .25rem;
+            }
         }
     }
     &__box {
         @include tablet {
             line-height: 1.375rem;
             @include desktop {
-                padding-right: 1rem;
             }
+        }
+    }
+    &__description {
+        @include desktop {
+            padding-right: 1rem;
         }
     }
 }

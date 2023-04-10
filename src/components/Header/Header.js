@@ -1,4 +1,6 @@
 import './Header.scss';
+import buttonIcon from '../../Assets/Icons/upload.svg';
+import brainFlixLogo from '../../Assets/Logo/BrainFlix-logo.svg';
 
 function Header() {
     return (
@@ -6,17 +8,17 @@ function Header() {
         <nav className="nav">
             <div className="nav__box1">
                 <a href="">
-                    <img className="nav__logo" src="../../Assets/Logo/BrainFlix-logo.svg" alt="BrainFlix Logo"></img>
+                    <img className="nav__logo" src={brainFlixLogo} alt="BrainFlix Logo"></img>
                 </a>
             </div>
             <div className="nav__box2">
                 <form className='nav__form' novalidate>
                     <div className="nav__upload">
                         <input className="nav__upload__type" type="text" name="fullName" placeholder="Search" required/>
-                        <img className='nav__pic' src='../../Data/Images/Mohan-muruge.jpg'></img>
+                        <div className='nav__pic'></div>
                     </div>
-                    <button className="nav__upload__button" type="submit">UPLOAD</button>
-                    <img className='nav__pic2' src='../../Data/Images/Mohan-muruge.jpg'></img>
+                    <button className="nav__upload__button" type="submit"> <img className='nav__upload__button--icon' src={buttonIcon} alt='upload-icon' /> UPLOAD</button>
+                    <div className='nav__pic2'></div>
                 </form>
             </div>
         </nav>

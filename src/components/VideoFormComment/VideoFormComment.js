@@ -1,4 +1,5 @@
 import './VideoFormComment.scss';
+import buttonIcon from '../../Assets/Icons/add_comment.svg';
 
 function VideoFormComment () {
     return (
@@ -10,7 +11,7 @@ function VideoFormComment () {
                         <div className="comment__form__div">
                         <p className='comment__form__header'>JOIN THE CONVERSATION</p>
                         <textarea className="comment__form__comment__text" name="comments" id="comments" placeholder="Add a new comment" required></textarea>
-                        <button type="submit" className="comment__form__button">COMMENT</button>
+                        <button type="submit" className="comment__form__button"> <img className='comment__form__button--icon' src={buttonIcon} alt='upload-icon' />COMMENT</button>
                         </div>
                 </form>
             </div>

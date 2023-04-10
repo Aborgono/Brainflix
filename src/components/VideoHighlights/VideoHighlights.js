@@ -1,4 +1,6 @@
 import './VideoHighlights.scss';
+import view from '../../Assets/Icons/views.svg'
+import like from '../../Assets/Icons/likes.svg'
 
 function VideoHighlights(props) {
     const {title, channel, description, views, likes, timestamp} = props
@@ -30,8 +32,12 @@ function VideoHighlights(props) {
                         <p className='video__details__item2'>{newDate}</p>
                     </div>
                     <div className='video__details__box2'>
-                        <p className='video__details__item2'>{views}</p>
-                        <p className='video__details__item2'>{likes}</p>
+                        <div className='video__details__box2--view'>
+                            <img src={view}></img><p className='video__details__item2'>{views}</p>
+                        </div>
+                        <div className='video__details__box2--like'>
+                            <img src={like}></img><p className='video__details__item2'>{likes}</p>
+                        </div>
                     </div>
                 </div>
             </div>
