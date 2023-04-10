@@ -1,11 +1,11 @@
 import './Video.scss';
 
 function Video(props) {
-    const {video} = props
+    const {video, image} = props
     return (
-    <div className='hero__container'>
-        <img className='hero__video' src={video}/>
-    </div>
+        <div className='hero__container'>
+            <video className='hero__video' poster={image} type="video/mp4" controls></video>
+        </div>
     );
 }
 

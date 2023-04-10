@@ -7,6 +7,7 @@ import VideoFormComment from './components/VideoFormComment/VideoFormComment';
 import FooterVideos from './components/FooterVideos/FooterVideos';
 import videoData from './Assets/Data/video-details.json';
 import { useState } from 'react';
+import CommentCount from './components/CommentCount/CommentCount';
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
   return (
     <div>
       <Header />
-      <Video video={selectedVideo.image} />
+      <Video image={selectedVideo.image} video={selectedVideo.video} />
       <div className='desktop'>
         <div className='desktop__container'>
           <VideoHighlights
@@ -25,6 +26,7 @@ function App() {
             likes={selectedVideo.likes}
             timestamp={selectedVideo.timestamp}
           />
+          <CommentCount comments={selectedVideo.comments} />
           <VideoFormComment />
           <VideoComments comments={selectedVideo.comments} />
         </div>
