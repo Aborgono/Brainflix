@@ -8,10 +8,13 @@ import FooterVideos from './components/FooterVideos/FooterVideos';
 import videoData from './Assets/Data/video-details.json';
 import { useState } from 'react';
 import CommentCount from './components/CommentCount/CommentCount';
+import { Routes, Route} from 'react-router-dom';
 
 
 function App() {
+
   const [selectedVideo, setSelectedVideo] = useState(videoData[0]);
+
   return (
     <div>
       <Header />
@@ -32,6 +35,14 @@ function App() {
         </div>
         <FooterVideos selectedVideo={selectedVideo} setSelectedVideo={setSelectedVideo}/>
       </div>
+
+
+
+    <Routes>
+      <Route path='/' element={<App video={selectedVideo} />}></Route>
+      {/* <Route path='upload' element={<Image images={arrImages} />}></Route>
+      <Route path='' element={<Image images={arrImages} />}></Route> */}
+    </Routes>
     </div>
   );
 }
