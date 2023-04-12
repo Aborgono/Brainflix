@@ -1,7 +1,7 @@
 import './FooterVideos.scss';
 import videos from '../../Assets/Data/videos.json'
 import videoData from '../../Assets/Data/video-details.json';
-
+import { Link } from 'react-router-dom';
 
 
 
@@ -23,20 +23,21 @@ function FooterVideos(props) {
         })
         setSelectedVideo(newlySelectedVideo[0])
     }
-    
     return (
     <div className='nextVideo__container'>
         <h3 className='nextVideo__header'>NEXT VIDEOS</h3>
         {filteredVideos.map((video) => {
             return (
-                    <div className='nextVideo__box' key={video.id} onClick={() => {updateSelectedVideo(video.id)} }>
-                        {/* <div className='nextVideo__box__image'> */}
-                        <video poster={video.image} className='nextVideo__box__details__image' alt={video.title}></video>
-                        <div className='nextVideo__box__details__box'>
-                            <div className='nextVideo__box__details__title'>{video.title}</div>
-                            <div className='nextVideo__box__details__channel'>{video.channel} </div>
+                    <Link to={`video/${video.title}`}>
+                        <div className='nextVideo__box' key={video.id} onClick={() => {updateSelectedVideo(video.id)} }>
+                            {/* <div className='nextVideo__box__image'> */}
+                            <video poster={video.image} className='nextVideo__box__details__image' alt={video.title}></video>
+                            <div className='nextVideo__box__details__box'>
+                                <div className='nextVideo__box__details__title'>{video.title}</div>
+                                <div className='nextVideo__box__details__channel'>{video.channel} </div>
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                 )
             })
         }
