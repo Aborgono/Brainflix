@@ -1,7 +1,45 @@
 @use '../styles/partials/mixin' as *;
 @use '../styles/partials/variables' as *;
 
-.comment {
+.upload {
+    &__container {
+        padding: 0 1rem 1rem 1rem;
+        @include tablet {
+            padding: 0 2.25rem 1rem 2.25rem;
+            @include desktop {
+                padding-left: 8rem;
+                padding-right: 8rem;
+            }
+        }
+    }
+    &__main__content {
+        &__box {
+            @include desktop {
+                display: flex;
+            }
+        }
+        &__video {
+            @include desktop {
+                width: 25%;
+            }
+        }
+        &__form {
+            @include desktop {
+                width: 75%;
+            }
+        }
+
+    }
+    &__header {
+        margin: 0;
+        @include tablet {
+            font-size: 2.25rem;
+        }
+    }
+    &__header__box {
+        border-bottom: 1px solid $Mercury;
+        padding: 1.5rem 0;
+    }
     &__section {
         display: flex;
         flex-direction: column;
@@ -20,33 +58,45 @@
             padding-top: 1rem;
         }
     }
-    &__form-input {
-        display: flex;
-        border-bottom: solid 1px;
-        border-color: $Mercury;
-        padding: 1rem 0;
-        @include tablet {
-            margin: 0 5rem;
-            @include desktop {
-                width: 42%;
-                align-self: center;
-            }
-        }
-    }
+    // &__form-input {
+    //     border-bottom: solid 1px;
+    //     border-color: $Mercury;
+    //     padding: 1rem 0;
+    //     @include tablet {
+    //         margin: 0 5rem;
+    //         @include desktop {
+    //             width: 42%;
+    //             align-self: center;
+    //         }
+    //     }
+    // }
     &__div {
         display: flex;
         flex-direction: column;
-        width: 90%;
+        width: 99%;
+        border-bottom: solid 1px;
+        border-color: $Mercury;
+        padding: 1rem 0;
+    }
+    &__submit__box {
+        margin-top: 1rem;
     }
     &__name {
         padding-bottom: .5rem;
         font-size: .8125rem;
         font-weight: 600;
         &__type {
-            padding-bottom: .5rem;
             font-size: .8125rem;
             color: $Silver;
-            font-weight: 600;
+            font-weight: 700;
+            @include tablet {
+                display: flex;
+                font-size: .875rem;
+                font-weight: 700;
+                color: $Silver;
+                @include desktop {
+                }
+            }
         }
         &__text {
             margin-bottom: 1rem;
@@ -66,10 +116,17 @@
         color: $Silver;
     }
     &__comment {
-        padding-bottom: .5rem;
-        font-size: .8125rem;
-        color: $Silver;
-        font-weight: 600;
+            font-size: .8125rem;
+            color: $Silver;
+            font-weight: 700;
+            @include tablet {
+                display: flex;
+                font-size: .875rem;
+                font-weight: 700;
+                color: $Silver;
+                @include desktop {
+                }
+            }
         &__text {
             margin-bottom: 1rem;
             height: 5rem;
@@ -102,19 +159,65 @@
             background-color: $Mercury;
         }
     }
-    &__pic {
-        background-image: url(../Assets/Images/Mohan-muruge.jpg);
-        height: 2.5rem;
-        width: 3rem;
-        background-size: cover;
-        border-radius: 100%;
-        margin-right: 1rem;
-        margin-top: 1rem;
-        @include tablet {
-            height: 2.7rem;
-            @include desktop {
-                height: 3rem;
+    &__submit__box {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        @include desktop {
+            flex-direction: row-reverse;
+        }
+        &--icon {
+            position: absolute;
+            left: 2rem;
+            @include tablet {
+                position: static;
             }
         }
     }
+    &__button {
+        width: 100%;
+        height: 2rem;
+        background-color: $BrainFlix-Blue;
+        color: white;
+        border-radius: .25rem;
+        border: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include desktop {
+            height: 3rem;
+            width: 12rem;
+            font-size: 1rem;
+        }
+    }
+    &__thumbnail__text {
+        font-size: .8125rem;
+        font-weight: 700;
+        color: $Silver;
+        @include tablet {
+            display: flex;
+            font-size: .875rem;
+            color: $Silver;
+            @include desktop {
+            }
+        }
+    }
+}
+
+.cancel__button {
+    margin-top: 1rem;
+    color: $BrainFlix-Blue;
+    align-self: center;
+    background-color: transparent;
+    border: 0;
+    @include desktop {
+        height: 3rem;
+        width: 12rem;
+        margin-top: 0;
+        font-size: 1rem;
+    }
+}
+
+.link {
+    text-decoration: none;
 }

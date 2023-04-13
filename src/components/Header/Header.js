@@ -18,7 +18,7 @@ function Header() {
                         <input className="nav__upload__type" type="text" name="fullName" placeholder="Search" required/>
                         <div className='nav__pic'></div>
                     </div>
-                    <Link to={'/upload'}>
+                    <Link className='link' to={'/upload'}>
                         <button className="nav__upload__button" type="submit"> <img className='nav__upload__button--icon' src={buttonIcon} alt='upload-icon' /> UPLOAD</button>
                     </Link>
                     <div className='nav__pic2'></div>

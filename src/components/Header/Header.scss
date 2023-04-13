@@ -2,7 +2,7 @@
 @use '../../styles/partials/mixin' as *;
 
 .nav {
-    border: 2px solid black;
+    border: 1px solid $Mercury;
     padding: 1rem;
     @include tablet {
         display: flex;
@@ -97,4 +97,7 @@
             }
         }
     }
+}
+.link {
+    text-decoration: none;
 }
