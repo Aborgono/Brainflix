@@ -64,22 +64,14 @@ function App() {
   useEffect(() => {
     if(!id) {
       axios.get(baseURL+vid+'84e96018-4022-434e-80bf-000ce4cd12b8'+apiKey).then((response) => {
-        console.log('this is our if response', response);
       setMainVideo(response.data);
       }) 
     }else {
       axios.get(baseURL+vid+`${id}`+apiKey).then((response) => {
-        console.log('this is our else response', response);
       setMainVideo(response.data);
       }) 
     }
 },[id]);
-
-  useEffect(() => {
-    console.log('this is mainmain', mainVideo);
-  }, [mainVideo])
-
-console.log(mainVideo);
 
   // const [selectedVideo, setSelectedVideo] = useState(videoData[0]);
 
@@ -104,11 +96,11 @@ console.log(mainVideo);
                   <VideoFormComment />
                   <VideoComments comments={mainVideo.comments} />
                 </div>
-                <FooterVideos mainVideo={mainVideo} setMainVideo={setMainVideo}/>
+                <FooterVideos setId={setId} mainVideo={mainVideo} setMainVideo={setMainVideo}/>
               </div>
             </>
           }/>
-        <Route path='/videos/:videoID' element={
+        <Route path='/video/:videoID' element={
           <>
             <Video image={mainVideo.image} video={mainVideo.video} />
               <div className='desktop'>
@@ -125,7 +117,7 @@ console.log(mainVideo);
                   <VideoFormComment />
                   <VideoComments comments={mainVideo.comments} />
                 </div>
-                {/* <FooterVideos mainVideo={mainVideo} setMainVideo={setMainVideo}/> */}
+                <FooterVideos setId={setId} mainVideo={mainVideo} setMainVideo={setMainVideo}/>
               </div>
             </>
           }/>

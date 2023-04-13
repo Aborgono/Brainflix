@@ -1,6 +1,6 @@
 import './FooterVideos.scss';
-import videos from '../../Assets/Data/videos.json'
-import videoData from '../../Assets/Data/video-details.json';
+// import videos from '../../Assets/Data/videos.json'
+// import videoData from '../../Assets/Data/video-details.json';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -14,15 +14,10 @@ function FooterVideos(props) {
     const baseURL = "https://project-2-api.herokuapp.com";
     const vid = "/videos";
 
-    const setSelectedVideo = props.setSelectedVideo
-    const selectedVideo = props.selectedVideo
-
     const mainVideo = props.mainVideo
-    const setMainVideo = props.setMainVideo
+    const setId = props.setId
 
     const {videoID} = useParams()
-
-    const [newVideo, setNewVideo] = useState([])
 
     const [videosArray, setVideosArray] = useState([])
 
@@ -45,15 +40,9 @@ function FooterVideos(props) {
         const newlySelectedVideo = videosArray.filter((video) => {
             return (video.id === newID)
         })
-        setMainVideo(newlySelectedVideo[0])
+        setId(newlySelectedVideo[0].id)
+        console.log('this is my videoID', videoID);
     }
-
-    // useEffect(() => {
-    //     axios.get(baseURL+vid+`/${setMainVideo.id}`+apiKey).then((response) => {
-    //     console.log('set main videos', response.data);
-    //     // setMainVideo(response.data)
-    //     })
-    // }, []);
 
     return (
     <div className='nextVideo__container'>
