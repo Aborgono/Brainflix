@@ -1,6 +1,4 @@
 import './FooterVideos.scss';
-// import videos from '../../Assets/Data/videos.json'
-// import videoData from '../../Assets/Data/video-details.json';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -17,9 +15,15 @@ function FooterVideos(props) {
     const mainVideo = props.mainVideo
     const setId = props.setId
 
+    
+    const [videosArray, setVideosArray] = useState([])
+
     const {videoID} = useParams()
 
-    const [videosArray, setVideosArray] = useState([])
+    // const video = videosArray.find((video) => video.id === videoID);
+    // if (!video) {
+    //     return <Navigate to="/" />;
+    // }
 
     useEffect(() => {
         axios.get(baseURL+vid+apiKey).then((response) => {
@@ -41,7 +45,6 @@ function FooterVideos(props) {
             return (video.id === newID)
         })
         setId(newlySelectedVideo[0].id)
-        console.log('this is my videoID', videoID);
     }
 
     return (
@@ -66,13 +69,3 @@ function FooterVideos(props) {
 }
 
 export default FooterVideos;
-
-//  <Link to={`video/${video.id}`}>
-// <div className='nextVideo__box' key={video.id} onClick={() => {updateSelectedVideo(video.id)} }>
-//     <video poster={video.image} className='nextVideo__box__details__image' alt={video.title}></video>
-//     <div className='nextVideo__box__details__box'>
-//         <div className='nextVideo__box__details__title'>{video.title}</div>
-//         <div className='nextVideo__box__details__channel'>{video.channel} </div>
-//     </div>
-// </div>
-// </Link>
