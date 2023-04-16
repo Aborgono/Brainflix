@@ -7,14 +7,9 @@ import CommentCount from '../CommentCount/CommentCount';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useParams, Navigate } from 'react-router-dom';
-const apiKey = "?api_key=%3D=9a240e0e-3f3e-4ee4-9e74-a63463faa2f9";
-
-const baseURL = "https://project-2-api.herokuapp.com";
-
-const vid = "/videos/";
 
 const defaultVideo = {
-"id": "1af0jruup5gu",
+"id": "84e96018-4022-434e-80bf-000ce4cd12b8",
 "title": "BMX Rampage: 2018 Highlights",
 "channel": "Red Cow",
 "image": "https://i.imgur.com/l2Xfgpl.jpg",
@@ -49,51 +44,92 @@ const defaultVideo = {
 ] 
 }
 
+const apiKey = "?api_key=%3D=9a240e0e-3f3e-4ee4-9e74-a63463faa2f9";
+
+const baseURL = "https://project-2-api.herokuapp.com";
+
+const vid = "/videos";
+
 
 function Main() {
     const [mainVideo, setMainVideo] = useState(defaultVideo);
+    /*maybe bring the videosArray here and refernce video 1.id at index 0*/
+
     const [id, setId] = useState();
 
-    // let ID = useParams ()
 
-    useEffect(() => {
-    if(!id) {
-        axios.get(baseURL+vid+'84e96018-4022-434e-80bf-000ce4cd12b8'+apiKey).then((response) => {
-        setMainVideo(response.data);
-        }) 
-    }else {
-        axios.get(baseURL+vid+`${id}`+apiKey).then((response) => {
-        setMainVideo(response.data);
-        }) 
-    }
-},[id]);
+    /* if (mainVideo === null) return */
 
-// const {videoID} = useParams()
+        useEffect(() => {
+        if(!id) {
+            axios.get(baseURL+vid+'84e96018-4022-434e-80bf-000ce4cd12b8'+apiKey).then((response) => {
+            setMainVideo(response.data);
+            }) 
+        }else {
+            axios.get(baseURL+vid+'/'+`${id}`+apiKey).then((response) => {
+            setMainVideo(response.data);
+        })
+            } 
 
-// const video = videosArray.find((video) => video.id === videoID);
-// if (!video) {
-//     return <Navigate to="/" />;
-// }
-    return(
+    },[id]);
+
+    // const [mainVideo, setMainVideo] = useState([]);
+    // const [videosArray, setVideosArray] = useState([]);
+
+    let { videoID } = useParams();
+
+    // useEffect(() => {
+    //     if (videoID === null) {
+    //         axios.get(baseURL + vid +'/'+ apiKey).then((response) => {
+    //             console.log("this is my setMainVideo", response.data[0]);
+    //             setVideosArray(response.data);
+    //             setMainVideo(videosArray[0]);
+    //         })
+    //     }
+    // },);
+
+    // useEffect(() => {
+    //     axios.get(baseURL + vid + `/` + videoID + apiKey).then((response) => {
+    //         console.log("this is my setMainVideo2", response.data[0].id);
+    //         setMainVideo(response.data);
+
+    //     }
+    //     )
+
+    // }, [videoID]);
+
+
+
+    // let defaultVideoID = null;
+
+    // if(videosArray.length > 0) {
+    //     defaultVideoID = videosArray[0].id;
+    // }
+
+    // const videoToDisplay = videoID || mainVideo.id;
+
+
+    return (
         <>
             <Video image={mainVideo.image} video={mainVideo.video} />
             <div className='desktop'>
                 <div className='desktop__container'>
-                <VideoHighlights
-                    title={mainVideo.title}
-                    channel={mainVideo.channel}
-                    description={mainVideo.description}
-                    views={mainVideo.views}
-                    likes={mainVideo.likes}
-                    timestamp={mainVideo.timestamp}
-                />
-                <CommentCount comments={mainVideo.comments} />
-                <VideoFormComment />
-                <VideoComments comments={mainVideo.comments} />
+                    <VideoHighlights
+                        title={mainVideo.title}
+                        channel={mainVideo.channel}
+                        description={mainVideo.description}
+                        views={mainVideo.views}
+                        likes={mainVideo.likes}
+                        timestamp={mainVideo.timestamp}
+                    />
+                    <CommentCount comments={mainVideo.comments} />
+                    <VideoFormComment />
+                    <VideoComments comments={mainVideo.comments} />
                 </div>
-                <FooterVideos setId={setId}  mainVideo={mainVideo} setMainVideo={setMainVideo}/>
+                <FooterVideos setId={setId} mainVideo={mainVideo} setMainVideo={setMainVideo} />
             </div>
         </>
-        )}
+    )
+}
 
 export default Main

@@ -13,7 +13,7 @@ function Header() {
                 </a>
             </div>
             <div className="nav__box2">
-                <form className='nav__form' novalidate>
+                <form className='nav__form' noValidate>
                     <div className="nav__upload">
                         <input className="nav__upload__type" type="text" name="fullName" placeholder="Search" required/>
                         <div className='nav__pic'></div>
