@@ -18,8 +18,6 @@ function FooterVideos(props) {
     const mainVideo = props.mainVideo
     const setMainVideo = props.setMainVideo
 
-    const setId = props.setId
-
     const {videoID} = useParams()
 
     const [newVideo, setNewVideo] = useState([])
@@ -39,10 +37,6 @@ function FooterVideos(props) {
     }
 
     const videoToDisplay = videoID || mainVideo.id;
-    // const video = videosArray.find((video) => video.id === videoID);
-    // if (!video) {
-    //     return <Navigate to="/" />;
-    // }
 
     /* created a constant called filteredvideos which accesses the videoData array and filters each video. The filter is checking whether the
     video id is not equal to the selected video id. if this IS the case, we return the vide0. if this is not the case return nothing */
@@ -56,12 +50,14 @@ function FooterVideos(props) {
     
     
     
-    function updateSelectedVideo (newID) {
-        const newlySelectedVideo = videosArray.filter((video) => {
-            return (video.id === newID)
-        })
-        setId(newlySelectedVideo[0].id)
-    }
+    // function updateSelectedVideo (newID) {
+    //     const newlySelectedVideo = videosArray.filter((video) => {
+    //         return (video.id === newID)
+    //     })
+    //     // setId(newlySelectedVideo[0].id)
+    // }
+
+    // onClick={() => {updateSelectedVideo(video.id)} }
 
     return (
     <div className='nextVideo__container'>
@@ -69,7 +65,7 @@ function FooterVideos(props) {
         {filteredVideos.map((video) => {
             return (
                 <Link to={`/video/${video.id}`}>
-                <div className='nextVideo__box'  key={video.id} onClick={() => {updateSelectedVideo(video.id)} }>
+                <div className='nextVideo__box'  key={video.id} >
                     <video poster={video.image} className='nextVideo__box__details__image' alt={video.title}></video>
                     <div className='nextVideo__box__details__box'>
                         <div className='nextVideo__box__details__title'>{video.title}</div>

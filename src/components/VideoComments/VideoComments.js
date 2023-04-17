@@ -5,6 +5,10 @@ function VideoComments(props) {
 const comments = props.comments
 console.log(comments);
 
+if (!props.comments) {
+    return (<div></div>)
+}
+
     return (
     
     <div className='comment__container'>
