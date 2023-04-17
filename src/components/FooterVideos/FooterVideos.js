@@ -12,15 +12,9 @@ function FooterVideos(props) {
     const baseURL = "https://project-2-api.herokuapp.com";
     const vid = "/videos";
 
-    const setSelectedVideo = props.setSelectedVideo
-    const selectedVideo = props.selectedVideo
-
     const mainVideo = props.mainVideo
-    const setMainVideo = props.setMainVideo
-
+    
     const {videoID} = useParams()
-
-    const [newVideo, setNewVideo] = useState([])
 
     const [videosArray, setVideosArray] = useState([])
 
@@ -43,21 +37,6 @@ function FooterVideos(props) {
         const filteredVideos = videosArray.filter((video) => { 
             return video.id !== videoToDisplay
         })
-    /* onClick runs the updated selected video function that takes in the video id of the video we clicked (as a parameter). the update selected
-    video function filters through the videoData array and looks to match the id of the video we clicked with any of the videos in that array.
-    when that id is found we run the set selected video and change it to our const newSelectedVideo that is the video we clicked. If
-    you go to the apps, the selected video changes */
-    
-    
-    
-    // function updateSelectedVideo (newID) {
-    //     const newlySelectedVideo = videosArray.filter((video) => {
-    //         return (video.id === newID)
-    //     })
-    //     // setId(newlySelectedVideo[0].id)
-    // }
-
-    // onClick={() => {updateSelectedVideo(video.id)} }
 
     return (
     <div className='nextVideo__container'>

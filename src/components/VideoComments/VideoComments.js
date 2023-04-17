@@ -1,9 +1,7 @@
 import './VideoComments.scss';
 
 function VideoComments(props) {
-    console.log('thisOne', props);
 const comments = props.comments
-console.log(comments);
 
 if (!props.comments) {
     return (<div></div>)
