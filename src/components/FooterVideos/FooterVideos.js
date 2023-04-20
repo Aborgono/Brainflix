@@ -8,9 +8,9 @@ import axios from 'axios';
 
 function FooterVideos(props) {
 
-    const apiKey = "?api_key=%3D=9a240e0e-3f3e-4ee4-9e74-a63463faa2f9";
-    const baseURL = "https://project-2-api.herokuapp.com";
-    const vid = "/videos";
+    // const apiKey = "?api_key=%3D=9a240e0e-3f3e-4ee4-9e74-a63463faa2f9";
+    // const baseURL = "https://project-2-api.herokuapp.com";
+    // const vid = "/videos";
 
     const mainVideo = props.mainVideo
     
@@ -19,7 +19,7 @@ function FooterVideos(props) {
     const [videosArray, setVideosArray] = useState([])
 
     useEffect(() => {
-        axios.get(baseURL+vid+apiKey).then((response) => {
+        axios.get(`http://localhost:8080/videos`).then((response) => {
         setVideosArray(response.data)
         })
     }, []);

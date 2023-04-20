@@ -8,11 +8,13 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useParams, Navigate } from 'react-router-dom';
 
-const apiKey = "?api_key=%3D=9a240e0e-3f3e-4ee4-9e74-a63463faa2f9";
 
-const baseURL = "https://project-2-api.herokuapp.com";
+// const apiKey = "?api_key=%3D=9a240e0e-3f3e-4ee4-9e74-a63463faa2f9";
 
-const vid = "/videos";
+// const baseURL = "https://project-2-api.herokuapp.com";
+
+// const vid = "/videos";
+// export {apiKey, baseURL, vid}
 
 
 function Main() {
@@ -22,13 +24,13 @@ function Main() {
 
         useEffect(() => {
         if(!videoID) {
-            axios.get(baseURL + vid +'/'+ apiKey).then((response) => {
-                axios.get(baseURL + vid + '/' + response.data[0].id + apiKey).then((response) => {
+            axios.get(`http://localhost:8080/videos/`).then((response) => {
+                axios.get(`http://localhost:8080/videos/` + response.data[0].id).then((response) => {
                     setMainVideo(response.data);
                     }) 
             })
         }else {
-            axios.get(baseURL+vid+'/'+`${videoID}`+apiKey).then((response) => {
+            axios.get(`http://localhost:8080/videos/` + videoID).then((response) => {
             setMainVideo(response.data);
         })
             } 
