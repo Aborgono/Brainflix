@@ -9,14 +9,6 @@ import axios from 'axios';
 import { Link, useParams, Navigate } from 'react-router-dom';
 
 
-// const apiKey = "?api_key=%3D=9a240e0e-3f3e-4ee4-9e74-a63463faa2f9";
-
-// const baseURL = "https://project-2-api.herokuapp.com";
-
-// const vid = "/videos";
-// export {apiKey, baseURL, vid}
-
-
 function Main() {
     const [mainVideo, setMainVideo] = useState([]);
 

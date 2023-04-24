@@ -8,10 +8,6 @@ import axios from 'axios';
 
 function FooterVideos(props) {
 
-    // const apiKey = "?api_key=%3D=9a240e0e-3f3e-4ee4-9e74-a63463faa2f9";
-    // const baseURL = "https://project-2-api.herokuapp.com";
-    // const vid = "/videos";
-
     const mainVideo = props.mainVideo
     
     const {videoID} = useParams()
@@ -43,8 +39,8 @@ function FooterVideos(props) {
         <h3 className='nextVideo__header'>NEXT VIDEOS</h3>
         {filteredVideos.map((video) => {
             return (
-                <Link to={`/video/${video.id}`}>
-                <div className='nextVideo__box'  key={video.id} >
+                <Link to={`/video/${video.id}`} key={video.id}>
+                <div className='nextVideo__box'>
                     <video poster={video.image} className='nextVideo__box__details__image' alt={video.title}></video>
                     <div className='nextVideo__box__details__box'>
                         <div className='nextVideo__box__details__title'>{video.title}</div>
