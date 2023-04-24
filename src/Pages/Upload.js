@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Upload.scss';
 import axios from 'axios';
+import thumbnail from '../Assets/Images/Upload-video-preview.jpg'
 // import { Link } from 'react-router-dom';
 
 function Upload() {
@@ -21,11 +22,11 @@ function Upload() {
             });
         }, [baseUrl]);
         
-        const getAllVideos = () => {
-            axios.get(`${baseUrl}/videos`).then((response) => {
-                setAllVideos(response.data);
-            });
-        }
+        // const getAllVideos = () => {
+        //     axios.get(`${baseUrl}/videos`).then((response) => {
+        //         setAllVideos(response.data);
+        //     });
+        // }
         
         const handleUploadVideo = (e) => {
             // e.preventDefault()
@@ -35,7 +36,6 @@ function Upload() {
         }
 
         const handleChange = (event) => {
-            console.log(individualUpload, event.target.name, event.target.value);
             setIndividualUpload(val => ({...val, [event.target.name]: event.target.value}));
         }
     return (
@@ -46,7 +46,7 @@ function Upload() {
             <div className='upload__main__content__box'>
                 <div className='upload__main__content__video'>
                     <h3 className='upload__thumbnail__text'>VIDEO THUMBNAIL</h3>
-                    <img className='upload__video' src='../Assets/Images/Upload-video-preview.svg' alt='upload-video' controls></img>
+                    <img className='upload__video' src={thumbnail} alt='upload-video' controls></img>
                 </div>
                 <div className='upload__main__content__form'>
                     <form id="upload__form-input" className="upload__form-input" novalidate>

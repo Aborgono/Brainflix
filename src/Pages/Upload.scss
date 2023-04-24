@@ -2,6 +2,16 @@
 @use '../styles/partials/variables' as *;
 
 .upload {
+    &__video {
+        border-radius: .25rem;
+        height: 4.0625rem;
+        width: 95%;
+        border-radius: 0.25rem;
+        height: 100%;
+        width: 95%;
+        background-size: cover;
+        align-self: center;
+    }
     &__container {
         padding: 0 1rem 1rem 1rem;
         @include tablet {
